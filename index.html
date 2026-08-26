@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Gesture Keys explores the bridge between spatial input and ordinary web controls. Pointer hover and click work immediately; a future landmark provider can supply the same normalized coordinates." />
+    <title>Gesture Keys</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <main class="lab" aria-labelledby="title">
+      <header class="intro">
+        <p class="eyebrow">GESTURE / DOM · local browser lab</p>
+        <h1 id="title">Gesture Keys</h1>
+        <p>A virtual keyboard that turns hover and press distance into readable DOM input.</p>
+        <div class="actions">
+          <button id="start-camera" type="button">Start camera</button>
+          <button id="use-sample" class="secondary" type="button">Use sample</button>
+          <button id="reset" class="secondary" type="button">Reset</button>
+          <button id="save" class="secondary" type="button">Save PNG</button>
+        </div>
+        <p id="status" class="status" role="status" aria-live="polite">Sample mode is ready. Camera permission has not been requested.</p>
+      </header>
+      <section class="workspace" aria-label="Interactive visual workspace">
+        <div class="input-panel panel"><span class="panel-label">Input signal</span><video id="video" autoplay muted playsinline aria-label="Optional camera input"></video><div id="sample" class="sample" aria-hidden="true"></div></div>
+        <div class="output-panel panel"><span class="panel-label">Processed study</span><canvas id="canvas" aria-label="Gesture Keys output" tabindex="0"></canvas></div>
+      </section>
+      <p id="typed-output" class="metrics" role="status" aria-live="polite">Typed output: —</p>
+      <p id="metrics" class="metrics">Pointer/sample fallback · camera off</p>
+      <section class="notes" aria-label="Browser notes"><h2>Progressive by design</h2><p>Camera access is optional and requested only after an explicit action. This package uses a model-free signal baseline, never uploads frames, and keeps pointer/sample behavior available when permission or tracking is unavailable.</p></section>
+    </main>
+    <script src="app.js"></script>
+  </body>
+</html>
